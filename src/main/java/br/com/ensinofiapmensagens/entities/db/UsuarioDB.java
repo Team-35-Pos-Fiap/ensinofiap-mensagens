@@ -1,10 +1,10 @@
-package br.com.relatorio.entities.db;
+package br.com.ensinofiapmensagens.entities.db;
 
+import java.util.List;
 import java.util.UUID;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -20,9 +20,8 @@ import lombok.Setter;
 @Table(name = "usuario")
 @Getter
 @Setter
-public class UsuarioDB {
+public class UsuarioDB extends PanacheEntityBase {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private UUID id;
 	
 	private String nome;
@@ -33,5 +32,9 @@ public class UsuarioDB {
 	
 	@ManyToOne
 	@JoinColumn(name = "id_perfil", columnDefinition = "int")
-	private PerfilDB idPerfil;
+	private PerfilDB perfil;
+
+	public static List<UsuarioDB> buscarUsuariosAdministradores() {
+		return list("select u from UsuarioDB u where u.perfil.id = 2 and u.ativo = true");
+	}
 }

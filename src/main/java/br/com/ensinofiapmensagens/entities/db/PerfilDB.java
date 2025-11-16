@@ -1,4 +1,4 @@
-package br.com.relatorio.entities.db;
+package br.com.ensinofiapmensagens.entities.db;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

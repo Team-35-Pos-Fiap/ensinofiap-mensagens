@@ -1,4 +1,4 @@
-package br.com.relatorio.entities;
+package br.com.ensinofiapmensagens.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

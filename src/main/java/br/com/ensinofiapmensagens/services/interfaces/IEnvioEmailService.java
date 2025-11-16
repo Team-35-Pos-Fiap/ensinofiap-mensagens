@@ -1,4 +1,4 @@
-package br.com.relatorio.services.interfaces;
+package br.com.ensinofiapmensagens.services.interfaces;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package br.com.relatorio.services;
+package br.com.ensinofiapmensagens.services;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,14 +8,16 @@ import com.azure.communication.email.EmailClientBuilder;
 import com.azure.communication.email.models.EmailAddress;
 import com.azure.communication.email.models.EmailMessage;
 
-import br.com.relatorio.services.interfaces.IEnvioEmailService;
+import br.com.ensinofiapmensagens.services.interfaces.IEnvioEmailService;
+import jakarta.enterprise.context.RequestScoped;
 
+@RequestScoped
 public class EnvioEmailService implements IEnvioEmailService {
 
 	private String connectionString = "endpoint=https://cms-ensino.brazil.communication.azure.com/;accesskey=FeH4iXIV2wZEQbrGSoaKkpLenuQCkTtcpjWATrRcFLtzF7evUaKeJQQJ99BKACULyCp9qFJVAAAAAZCS2Jpc";
 
 	private EmailClient emailClient = new EmailClientBuilder().connectionString(connectionString).buildClient();
-		
+
 	@Override
 	public void enviar(String mensagem, List<String> destinatarios, String remetente, String assunto) {
 		emailClient.beginSend(montarEmail(mensagem, destinatarios, remetente, assunto));
