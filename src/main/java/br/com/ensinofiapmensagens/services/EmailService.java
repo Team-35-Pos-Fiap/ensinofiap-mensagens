@@ -5,7 +5,6 @@ import java.util.List;
 import br.com.ensinofiapmensagens.services.interfaces.IEmailService;
 import br.com.ensinofiapmensagens.services.interfaces.IEnvioEmailService;
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 
 @RequestScoped
 public class EmailService implements IEmailService {
