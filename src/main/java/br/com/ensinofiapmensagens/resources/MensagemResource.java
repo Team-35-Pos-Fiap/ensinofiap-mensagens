@@ -9,8 +9,9 @@ import br.com.ensinofiapmensagens.services.interfaces.IUsuarioService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import com.microsoft.azure.functions.annotation.FunctionName;
 
-@Path("/ensino/mensagens")
+//@Path("/ensino/mensagens")
 public class MensagemResource {
 
 	@Inject
@@ -19,8 +20,9 @@ public class MensagemResource {
     @Inject
 	private IUsuarioService usuarioService;
 
-    @POST
-    public void processarMensagens() throws InterruptedException {
+    //@POST
+    @FunctionName("fnc-ensino-mensagens")
+	public void processarMensagens() throws InterruptedException {
     	mensagemService.processar(buscarEmailsDestinatarios());
     }
 
