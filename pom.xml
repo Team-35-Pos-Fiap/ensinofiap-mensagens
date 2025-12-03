@@ -65,6 +65,14 @@
 			<artifactId>quarkus-mailer</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-funqy-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-azure-functions-http</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.42</version>
