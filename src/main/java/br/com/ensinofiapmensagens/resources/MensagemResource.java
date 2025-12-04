@@ -6,10 +6,8 @@ import java.util.stream.Collectors;
 import br.com.ensinofiapmensagens.entities.db.UsuarioDB;
 import br.com.ensinofiapmensagens.services.interfaces.IMensagemService;
 import br.com.ensinofiapmensagens.services.interfaces.IUsuarioService;
-import io.quarkus.funqy.Funq;
 import jakarta.inject.Inject;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
+import com.microsoft.azure.functions.annotation.FunctionName;
 
 //@Path("/ensino/mensagens")
 public class MensagemResource {
@@ -21,8 +19,8 @@ public class MensagemResource {
 	private IUsuarioService usuarioService;
 
     //@POST
-	@Funq("processar")
-    public void processarMensagens() throws InterruptedException {
+    @FunctionName("fnc-ensino-mensagens")
+	public void processarMensagens() throws InterruptedException {
     	mensagemService.processar(buscarEmailsDestinatarios());
     }
 
